@@ -6,8 +6,28 @@ gem 'rails', '4.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-# Use SCSS for stylesheets
+# Use Rspec for testing
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+# Use Guard LiveReload to auto update views
+group :development do
+  gem 'guard'
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+end
+
+# Use Geokit to do distance and radius calculations
+gem 'geokit-rails'
+
+# Use Pry to debug
+gem 'pry'
+
+# Use SCSS for stylesheets, Foundation for styles, and Font Awesome for icons
 gem 'sass-rails', '~> 4.0.0'
+gem 'foundation-rails'
+gem 'font-awesome-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
