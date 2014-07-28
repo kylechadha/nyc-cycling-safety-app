@@ -1,0 +1,57 @@
+
+<h3>Here's a list of the collisions in our database:</h3>
+
+<table>
+	<tr>
+		<th>date</th>
+		<th>time</th>
+		<th>borough</th>
+		<th>zipcode</th>
+		<th>lat</th>
+		<th>lon</th>
+		<th>street_name</th>
+		<th>cross_street</th>
+		<th>off_street</th>
+		<th>persons_injured</th>
+		<th>persons_killed</th>
+		<th>pedestrians_injured</th>
+		<th>pedestrians_killed</th>
+		<th>cyclists_injured</th>
+		<th>cyclists_killed</th>
+		<th>motorists_injured</th>
+		<th>motorists_killed</th>
+		<th>contrib_vehicle_one</th>
+		<th>contrib_vehicle_two</th>
+		<th>contrib_vehicle_three</th>
+		<th>contrib_vehicle_four</th>
+		<th>contrib_vehicle_five</th>
+		<th>unique_key</th>
+	</tr>
+	<% @collisions.each do |collision| %>
+		<tr>
+      <td><%= collision.date %></td>
+      <td><%= collision.time %></td>
+      <td><%= collision.borough %></td>
+      <td><%= collision.zipcode %></td>
+      <td><%= collision.lat %></td>
+      <td><%= collision.lon %></td>
+      <td><%= collision.street_name %></td>
+      <td><%= collision.cross_street %></td>
+      <td><%= collision.off_street %></td>
+      <td><%= collision.persons_injured %></td>
+      <td><%= collision.persons_killed %></td>
+      <td><%= collision.pedestrians_injured %></td>
+      <td><%= collision.pedestrians_killed %></td>
+      <td><%= collision.cyclists_injured %></td>
+      <td><%= collision.cyclists_killed %></td>
+      <td><%= collision.motorists_injured %></td>
+      <td><%= collision.motorists_killed %></td>
+      <td><%= collision.contrib_vehicle_one %></td>
+      <td><%= collision.contrib_vehicle_two %></td>
+      <td><%= collision.contrib_vehicle_three %></td>
+      <td><%= collision.contrib_vehicle_four %></td>
+      <td><%= collision.contrib_vehicle_five %></td>
+      <td><%= collision.unique_key %></td>		
+		</tr>
+	<% end %>
+</table>
