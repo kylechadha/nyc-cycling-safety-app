@@ -6,9 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# # To seed the FULL dataset
+# # http://dev.socrata.com/consumers/getting-started.html (LOOK for: limit and offset)
+
 # # Will want to later set up this seed process a recurring weekly check -- and ideally write ONLY new rows
 # collisions = ActiveSupport::JSON.decode(open('http://data.cityofnewyork.us/resource/h9gi-nx95.json'))
- 
+
+# Collision.delete_all
+
 # collisions.each do |collision|
 #   Collision.create!(
 #   	date: collision['date'],
@@ -18,8 +23,8 @@
 #   	lat: collision['latitude'],
 #   	lon: collision['longitude'],
 #   	street_name: collision['on_street_name'],
-#   	cross_street: collision['cross_street_name'],
-#   	off_street: collision['off_street_name'],
+#   	cross_street: collision['off_street_name'],
+#   	off_street: collision['cross_street_name'],
 #   	persons_injured: collision['number_of_persons_injured'],
 #   	persons_killed: collision['number_of_persons_killed'],
 #   	pedestrians_injured: collision['number_of_pedestrians_injured'],
