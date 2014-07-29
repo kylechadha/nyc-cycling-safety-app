@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728205211) do
+ActiveRecord::Schema.define(version: 20140729020951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,21 @@ ActiveRecord::Schema.define(version: 20140728205211) do
     t.string   "contrib_vehicle_four"
     t.string   "contrib_vehicle_five"
     t.integer  "unique_key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "intersections", force: true do |t|
+    t.string   "intersection"
+    t.string   "borough"
+    t.integer  "persons_injured"
+    t.integer  "persons_killed"
+    t.integer  "pedestrians_injured"
+    t.integer  "pedestrians_killed"
+    t.integer  "cyclists_injured"
+    t.integer  "cyclists_killed"
+    t.integer  "motorists_injured"
+    t.integer  "motorists_killed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
