@@ -3,7 +3,7 @@
 <script>
 
   var map;
-  var collisions;
+  var collisionsArray = [];
 
   function initialize() {
 
@@ -19,21 +19,29 @@
       type: "GET",
       url: "/collisions/",
       dataType: "json"
-    }).done(function (response) {
+    }).done(function(response) {
+
+      var latlngbounds = new google.maps.LatLngBounds();
+
       $.each(response.collisions, function(i) {
 
         var collisionLocation = new google.maps.LatLng(response.collisions[i].lat, response.collisions[i].lon);
-        console.log(collisionLocation);
+        latlngbounds.extend(collisionLocation);
 
         var marker = new google.maps.Marker({
             position: collisionLocation,
-            title: "test"
+            title: "This is a title!"
         });
 
         marker.setMap(map);
 
       })
+
+      map.fitBounds(latlngbounds); 
+
     });
+
+
 
   }
 
