@@ -1,0 +1,30 @@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDw1Ba3y7gTlafSaFsLW7RmkOpmogonpw&sensor=true"></script>
+
+<script>
+
+  var map;
+  var myLatlng = new google.maps.LatLng(40.714623, -74.006605);
+
+  function initialize() {
+
+    var mapOptions = {
+      zoom: 11,
+      center: new google.maps.LatLng(40.714623,-74.006605)
+    };
+
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title:"Hello World!"
+    });
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+<h3>Map View of Collisions in NYC</h3>
+<div id="map-canvas"></div>
