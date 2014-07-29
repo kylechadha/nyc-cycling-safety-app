@@ -22,9 +22,11 @@
     }).done(function(response) {
 
       var latlngbounds = new google.maps.LatLngBounds();
+      var infowindow;
 
       $.each(response.collisions, function(i) {
 
+        var collisionStreetName = response.collisions[i].street_name + " and " + response.collisions[i].cross_street;
         var collisionLocation = new google.maps.LatLng(response.collisions[i].lat, response.collisions[i].lon);
         latlngbounds.extend(collisionLocation);
 
@@ -35,9 +37,17 @@
 
         marker.setMap(map);
 
+        google.maps.event.addListener(marker, 'click', function() {
+          if (infowindow) {infowindow.close()};
+          infowindow = new google.maps.InfoWindow({
+              content: collisionStreetName
+          });
+          infowindow.open(map, marker);
+        });
+
       })
 
-      map.fitBounds(latlngbounds); 
+      // map.fitBounds(latlngbounds); 
 
     });
 
