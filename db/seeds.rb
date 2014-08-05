@@ -51,9 +51,31 @@ collisions.each do |collision|
   # Ultimately will want to be able to handle cases where lat / lon is blank and try to map by intersection
   # Really you'd want this to be a key ... maybe intersection + borough is a better key than location
   unless intersections[location]
-    intersections[location] = {intersection_name: intersection_name, borough: collision['borough'], lat: collision['latitude'], lon: collision['longitude'], collisions: 1}
+    intersections[location] = {
+      intersection_name: intersection_name,
+      borough: collision['borough'],
+      lat: collision['latitude'],
+      lon: collision['longitude'],
+      persons_injured: collision['number_of_persons_injured'],
+      persons_killed: collision['number_of_persons_killed'],
+      pedestrians_injured: collision['number_of_pedestrians_injured'],
+      pedestrians_killed: collision['number_of_pedestrians_killed'],
+      cyclists_injured: collision['number_of_cyclist_injured'],
+      cyclists_killed: collision['number_of_cyclist_killed'],
+      motorists_injured: collision['number_of_motorist_injured'],
+      motorists_killed: collision['number_of_motorist_killed'],
+      collisions: 1
+    }
   else
     intersections[location][:collisions] += 1
+    intersections[location][:persons_injured] += collision['number_of_persons_injured']
+    intersections[location][:persons_killed] += collision['number_of_persons_killed']
+    intersections[location][:pedestrians_injured] += collision['number_of_pedestrians_injured']
+    intersections[location][:pedestrians_killed] += collision['number_of_pedestrians_killed']
+    intersections[location][:cyclists_injured] += collision['number_of_cyclist_injured']
+    intersections[location][:cyclists_killed] += collision['number_of_cyclist_killed']
+    intersections[location][:motorists_injured] += collision['number_of_motorist_injured']
+    intersections[location][:motorists_killed] += collision['number_of_motorist_killed']
   end
 
   # intersectionArray.push({street_name: collision['on_street_name'], cross_street: collision['off_street_name'], borough: collision['borough']})
