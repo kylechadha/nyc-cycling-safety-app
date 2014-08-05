@@ -36,26 +36,48 @@ collisions.each do |collision|
   )
   
   location = "(#{collision['latitude']}, #{collision['longitude']})" 
-  intersection_name = collision['on_street_name'] + ' and ' + collision['off_street_name']
+  if collision['on_street_name'] && collision['off_street_name']
+    intersection_name = collision['on_street_name'] + ' and ' + collision['off_street_name']
+  elsif collision['on_street_name']
+    intersection_name = collision['on_street_name']
+  elsif collision['off_street_name']
+    intersection_name = collision['off_street_name']
+  elsif collision['cross_street_name']
+    intersection_name = collision['cross_street_name']
+  else
+    intersection_name = 'Unavailable'
+  end
 
+  # Ultimately will want to be able to handle cases where lat / lon is blank and try to map by intersection
+  # Really you'd want this to be a key ... maybe intersection + borough is a better key than location
   unless intersections[location]
     intersections[location] = {intersection_name: intersection_name, borough: collision['borough'], lat: collision['latitude'], lon: collision['longitude'], collisions: 1}
   else
-    intersections[location]['collisions'] += 1
+    intersections[location][:collisions] += 1
   end
 
   # intersectionArray.push({street_name: collision['on_street_name'], cross_street: collision['off_street_name'], borough: collision['borough']})
 end
 
-
 Intersection.delete_all
-
-intersectionSet = intersectionArray.to_set
-intersectionSet.each do |intersectionObj|
-  intersectionName = "#{intersectionObj[:street_name]} and #{intersectionObj[:cross_street]}"
-
+intersections.keys.each do |location|
   Intersection.create!(
-    intersection: intersectionName,
-    borough: intersectionObj[:borough]
+    intersection: intersections[location][:intersection_name],
+    borough: intersections[location][:borough],
+    lat: intersections[location][:lat],
+    lon: intersections[location][:lon],
+    collisions: intersections[location][:collisions]
+    # Maybe include list of unique IDs that populated the data for each intersection
   )
 end
+
+
+# intersectionSet = intersectionArray.to_set
+# intersectionSet.each do |intersectionObj|
+#   intersectionName = "#{intersectionObj[:street_name]} and #{intersectionObj[:cross_street]}"
+
+#   Intersection.create!(
+#     intersection: intersectionName,
+#     borough: intersectionObj[:borough]
+#   )
+# end

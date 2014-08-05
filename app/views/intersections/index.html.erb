@@ -1,5 +1,5 @@
 <ul>
 	<% @intersections.each do |intersection| %>
-		<li><%= intersection.intersection %> in <%= intersection.borough %></li>
+		<li><%= intersection.intersection %> in <%= intersection.borough %> has <%= intersection.collisions %> collision(s).</li>
 	<% end %>
 </ul>
