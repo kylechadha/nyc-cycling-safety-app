@@ -6,7 +6,7 @@ Collision.delete_all
 
 # # Will want to later set up this seed process a recurring weekly check -- and ideally write ONLY new rows
 collisions = ActiveSupport::JSON.decode(open('http://data.cityofnewyork.us/resource/h9gi-nx95.json'))
-intersectionArray = []
+intersections = {}
 
 collisions.each do |collision|
   Collision.create!(
@@ -35,7 +35,16 @@ collisions.each do |collision|
     unique_key: collision['unique_key']
   )
   
-  intersectionArray.push({street_name: collision['on_street_name'], cross_street: collision['off_street_name'], borough: collision['borough']})
+  location = "(#{collision['latitude']}, #{collision['longitude']})" 
+  intersection_name = collision['on_street_name'] + ' and ' + collision['off_street_name']
+
+  unless intersections[location]
+    intersections[location] = {intersection_name: intersection_name, borough: collision['borough'], lat: collision['latitude'], lon: collision['longitude'], collisions: 1}
+  else
+    intersections[location]['collisions'] += 1
+  end
+
+  # intersectionArray.push({street_name: collision['on_street_name'], cross_street: collision['off_street_name'], borough: collision['borough']})
 end
 
 

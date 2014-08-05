@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729020951) do
+ActiveRecord::Schema.define(version: 20140805010701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,9 @@ ActiveRecord::Schema.define(version: 20140729020951) do
     t.integer  "motorists_killed"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "lat"
+    t.float    "lon"
+    t.integer  "collisions"
   end
 
 end
