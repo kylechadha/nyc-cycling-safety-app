@@ -5,7 +5,7 @@
 Collision.delete_all
 
 # # Will want to later set up this seed process a recurring weekly check -- and ideally write ONLY new rows
-collisions = ActiveSupport::JSON.decode(open('http://data.cityofnewyork.us/resource/h9gi-nx95.json'))
+collisions = ActiveSupport::JSON.decode(open('http://data.cityofnewyork.us/resource/h9gi-nx95.json?$limit=10000'))
 intersections = {}
 
 collisions.each do |collision|
