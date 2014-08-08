@@ -1,5 +1,47 @@
 
-<h3>Here's a list of the intersections in our database:</h3>
+<h3>Here's some summary stats of the intersections in our database:</h3>
+
+<table>
+	<tr>
+		<th></th>
+		<th>Collisions</th>
+		<th>Persons Injured</th>
+		<th>Persons Killed</th>
+		<th>Pedestrians Injured</th>
+		<th>Pedestrians Killed</th>
+		<th>Cyclists Injured</th>
+		<th>Cyclists Killed</th>
+		<th>Motorists Injured</th>
+		<th>Motorists Killed</th>
+	</tr>
+	<tr>
+		<td>Sum</td>
+		<td><%= @sum_collisions %></td>
+		<td><%= @sum_persons_injured %></td>
+		<td><%= @sum_persons_killed %></td>
+		<td><%= @sum_pedestrians_injured %></td>
+		<td><%= @sum_pedestrians_killed %></td>
+		<td><%= @sum_cyclists_injured %></td>
+		<td><%= @sum_cyclists_killed %></td>
+		<td><%= @sum_motorists_injured %></td>
+		<td><%= @sum_motorists_killed %></td>
+	</tr>
+	<tr>
+		<td>Average</td>
+		<td><%= number_with_precision(@average_collisions, precision: 3) %></td>
+		<td><%= number_with_precision(@average_persons_injured, precision: 3) %></td>
+		<td><%= number_with_precision(@average_persons_killed, precision: 3) %></td>
+		<td><%= number_with_precision(@average_pedestrians_injured, precision: 3) %></td>
+		<td><%= number_with_precision(@average_pedestrians_killed, precision: 3) %></td>
+		<td><%= number_with_precision(@average_cyclists_injured, precision: 3) %></td>
+		<td><%= number_with_precision(@average_cyclists_killed, precision: 3) %></td>
+		<td><%= number_with_precision(@average_motorists_injured, precision: 3) %></td>
+		<td><%= number_with_precision(@average_motorists_killed, precision: 3) %></td>
+	</tr>
+</table>
+
+<br>
+<h3>And here's the full list:</h3>
 
 <table>
 	<tr>
