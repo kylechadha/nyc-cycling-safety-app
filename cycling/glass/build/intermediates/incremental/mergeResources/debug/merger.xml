@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="main" >
+        <source path="/Users/rizk/apps/cycling/glass/src/main/res" >
+            <file
+                name="ic_glass_logo"
+                path="/Users/rizk/apps/cycling/glass/src/main/res/drawable-hdpi/ic_glass_logo.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/rizk/apps/cycling/glass/src/main/res/drawable-hdpi/ic_launcher.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_stop"
+                path="/Users/rizk/apps/cycling/glass/src/main/res/drawable-hdpi/ic_stop.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/rizk/apps/cycling/glass/src/main/res/drawable-mdpi/ic_launcher.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/rizk/apps/cycling/glass/src/main/res/drawable-xhdpi/ic_launcher.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/rizk/apps/cycling/glass/src/main/res/drawable-xxhdpi/ic_launcher.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="live_card"
+                path="/Users/rizk/apps/cycling/glass/src/main/res/layout/live_card.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="live_card"
+                path="/Users/rizk/apps/cycling/glass/src/main/res/menu/live_card.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                path="/Users/rizk/apps/cycling/glass/src/main/res/values/dimens.xml"
+                qualifiers="" >
+                <dimen name="card_margin" >40px
+                </dimen>
+            </file>
+            <file
+                path="/Users/rizk/apps/cycling/glass/src/main/res/values/strings.xml"
+                qualifiers="" >
+                <string name="action_stop" >Stop
+                </string>
+                <string name="app_name" >cycling
+                </string>
+                <string name="hello_world" >Hello world!
+                </string>
+                <string name="title_activity_live_card_service" >Hello World LiveCard
+                </string>
+            </file>
+            <file
+                path="/Users/rizk/apps/cycling/glass/src/main/res/values/styles.xml"
+                qualifiers="" >
+
+                <style
+                    name="MenuTheme"
+                    parent="@android:style/Theme.DeviceDefault" >
+                    <item name="android:windowBackground">
+@android:color/transparent
+                    </item>
+                    <item name="android:colorBackgroundCacheHint">
+@null
+                    </item>
+                    <item name="android:windowIsTranslucent">
+true
+                    </item>
+                    <item name="android:windowAnimationStyle">
+@null
+                    </item>
+                </style>
+
+                <style
+                    name="AppTheme"
+                    parent="android:Theme.Holo.Light" />
+            </file>
+            <file
+                name="voice_trigger"
+                path="/Users/rizk/apps/cycling/glass/src/main/res/xml/voice_trigger.xml"
+                qualifiers=""
+                type="xml" />
+        </source>
+        <source path="/Users/rizk/apps/cycling/glass/build/generated/res/rs/debug" />
+        <source path="/Users/rizk/apps/cycling/glass/build/generated/res/generated/debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/rizk/apps/cycling/glass/src/debug/res" />
+    </dataSet>
+
+</merger>

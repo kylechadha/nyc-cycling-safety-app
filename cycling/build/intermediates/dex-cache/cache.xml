@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/rizk/apps/cycling/mobile/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-75bc00e045434b0be96d826ae357d21e06e3d10a.jar"
+        jar="/Users/rizk/Documents/adt-bundle-mac-x86_64-20131030/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+    <item
+        dex="/Users/rizk/apps/cycling/mobile/build/intermediates/pre-dexed/debug/classes-5cf0a308a29211b892ffe555521ef90bee369b8e.jar"
+        jar="/Users/rizk/apps/cycling/mobile/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+    <item
+        dex="/Users/rizk/apps/cycling/mobile/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-124e51222a1402f5d543088f410d1dc47d43aea2.jar"
+        jar="/Users/rizk/apps/cycling/mobile/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+    <item
+        dex="/Users/rizk/apps/cycling/mobile/build/intermediates/pre-dexed/debug/classes-269d7a40179cc5f843a76f68ea6e8326bb5db947.jar"
+        jar="/Users/rizk/apps/cycling/mobile/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef"/>
+    <item
+        dex="/Users/rizk/apps/cycling/mobile/build/intermediates/pre-dexed/debug/classes-c62c84757fe7f23de3210b25892fcc25b14d27d8.jar"
+        jar="/Users/rizk/apps/cycling/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.2.42/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e5f81129dfb3d02df80126512bc98278ed2bb40a"/>
+
+</pre-dex-items>
