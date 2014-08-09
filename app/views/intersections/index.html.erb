@@ -38,6 +38,18 @@
 		<td><%= number_with_precision(@average_motorists_injured, precision: 3) %></td>
 		<td><%= number_with_precision(@average_motorists_killed, precision: 3) %></td>
 	</tr>
+	<tr>
+		<td>Std Deviation</td>
+		<td><%= number_with_precision(@stddev_collisions, precision: 3) %></td>
+		<td><%= number_with_precision(@stddev_persons_injured, precision: 3) %></td>
+		<td><%= number_with_precision(@stddev_persons_killed, precision: 3) %></td>
+		<td><%= number_with_precision(@stddev_pedestrians_injured, precision: 3) %></td>
+		<td><%= number_with_precision(@stddev_pedestrians_killed, precision: 3) %></td>
+		<td><%= number_with_precision(@stddev_cyclists_injured, precision: 3) %></td>
+		<td><%= number_with_precision(@stddev_cyclists_killed, precision: 3) %></td>
+		<td><%= number_with_precision(@stddev_motorists_injured, precision: 3) %></td>
+		<td><%= number_with_precision(@stddev_motorists_killed, precision: 3) %></td>
+	</tr>
 </table>
 
 
