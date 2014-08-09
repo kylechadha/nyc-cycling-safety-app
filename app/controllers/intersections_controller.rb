@@ -23,15 +23,42 @@ class IntersectionsController < ApplicationController
     @average_motorists_injured = Intersection.average('motorists_injured')
     @average_motorists_killed = Intersection.average('motorists_killed')
 
-    @stddev_collisions = ActiveRecord::Base.connection.select_value('SELECT stddev(collisions) FROM intersections WHERE collisions NOT IN (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
-    @stddev_persons_injured = ActiveRecord::Base.connection.select_value('SELECT stddev(persons_injured) FROM intersections WHERE collisions NOT IN (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
-    @stddev_persons_killed = ActiveRecord::Base.connection.select_value('SELECT stddev(persons_killed) FROM intersections WHERE collisions NOT IN (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
-    @stddev_pedestrians_injured = ActiveRecord::Base.connection.select_value('SELECT stddev(pedestrians_injured) FROM intersections WHERE collisions NOT IN (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
-    @stddev_pedestrians_killed = ActiveRecord::Base.connection.select_value('SELECT stddev(pedestrians_killed) FROM intersections WHERE collisions NOT IN (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
-    @stddev_cyclists_injured = ActiveRecord::Base.connection.select_value('SELECT stddev(cyclists_injured) FROM intersections WHERE collisions NOT IN (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
-    @stddev_cyclists_killed = ActiveRecord::Base.connection.select_value('SELECT stddev(cyclists_killed) FROM intersections WHERE collisions NOT IN (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
-    @stddev_motorists_injured = ActiveRecord::Base.connection.select_value('SELECT stddev(motorists_injured) FROM intersections WHERE collisions NOT IN (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
-    @stddev_motorists_killed = ActiveRecord::Base.connection.select_value('SELECT stddev(motorists_killed) FROM intersections WHERE collisions NOT IN (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
+    @stddev_collisions = ActiveRecord::Base.connection.select_value('
+      SELECT stddev(collisions) FROM intersections WHERE 
+        collisions NOT IN 
+          (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
+    @stddev_persons_injured = ActiveRecord::Base.connection.select_value('
+      SELECT stddev(persons_injured) FROM intersections WHERE 
+        collisions NOT IN 
+          (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
+    @stddev_persons_killed = ActiveRecord::Base.connection.select_value('
+      SELECT stddev(persons_killed) FROM intersections WHERE 
+        collisions NOT IN 
+          (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
+    @stddev_pedestrians_injured = ActiveRecord::Base.connection.select_value('
+      SELECT stddev(pedestrians_injured) FROM intersections WHERE 
+        collisions NOT IN 
+          (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
+    @stddev_pedestrians_killed = ActiveRecord::Base.connection.select_value('
+      SELECT stddev(pedestrians_killed) FROM intersections WHERE 
+        collisions NOT IN 
+          (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
+    @stddev_cyclists_injured = ActiveRecord::Base.connection.select_value('
+      SELECT stddev(cyclists_injured) FROM intersections WHERE 
+        collisions NOT IN 
+          (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
+    @stddev_cyclists_killed = ActiveRecord::Base.connection.select_value('
+      SELECT stddev(cyclists_killed) FROM intersections WHERE 
+        collisions NOT IN 
+          (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
+    @stddev_motorists_injured = ActiveRecord::Base.connection.select_value('
+      SELECT stddev(motorists_injured) FROM intersections WHERE 
+        collisions NOT IN 
+          (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
+    @stddev_motorists_killed = ActiveRecord::Base.connection.select_value('
+      SELECT stddev(motorists_killed) FROM intersections WHERE 
+        collisions NOT IN 
+          (SELECT collisions FROM intersections WHERE collisions > 1000)').to_f
 
     respond_to do |format|
       format.html
