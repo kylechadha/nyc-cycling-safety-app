@@ -62,6 +62,7 @@
 		<th>Borough</th>
 		<th>Lat</th>
 		<th>Lon</th>
+		<th>Danger Index</th>
 		<th>Collisions</th>
 		<th>Persons Injured</th>
 		<th>Persons Killed</th>
@@ -78,6 +79,16 @@
 			<td><%= intersection.borough %></td>
 			<td><%= intersection.lat %></td>
 			<td><%= intersection.lon %></td>
+			<td>
+				<%=
+					(
+					 (300 * intersection.collisions) +
+					 (400 * intersection.cyclists_killed) +
+					 (200 * intersection.cyclists_injured) +
+					 (100 * (intersection.pedestrians_killed + intersection.motorists_killed))
+					)
+				%>
+			</td>
 			<td><%= intersection.collisions %></td>
 			<td><%= intersection.persons_injured %></td>
 			<td><%= intersection.persons_killed %></td>
