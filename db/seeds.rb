@@ -35,6 +35,11 @@ collisions.each do |collision|
     unique_key: collision['unique_key']
   )
   
+  # Maybe intersection + borough is a better key than location? Otherwise you have a ~15% of collisions unmapped because they don't have lat / lon info
+  # The tradeof is the data might be inaccurate if you have multiple lat / lons mapped to one intersection --> only the first lat / lon is going to be included in the intersections db
+  # # # Ah! New finding ... this doesn't work because then you get the on street name and off street name reversed, which makes it two separate intersections when it's not actually
+  # Probably the best approach is to do it first by lat / lon, then by intersection if lat / lon is blank --> is there risk of overlap doing it this way?
+  # location = "#{collision['on_street_name']}, #{collision['off_street_name']}, #{collision['borough']}"
   location = "(#{collision['latitude']}, #{collision['longitude']})" 
   if collision['on_street_name'] && collision['off_street_name']
     intersection_name = collision['on_street_name'] + ' and ' + collision['off_street_name']
@@ -48,8 +53,6 @@ collisions.each do |collision|
     intersection_name = 'Unavailable'
   end
 
-  # Ultimately will want to be able to handle cases where lat / lon is blank and try to map by intersection
-  # Really you'd want this to be a key ... maybe intersection + borough is a better key than location
   unless intersections[location]
     intersections[location] = {
       intersection_name: intersection_name,
