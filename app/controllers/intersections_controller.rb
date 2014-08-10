@@ -67,7 +67,8 @@ class IntersectionsController < ApplicationController
 	end
 
   def show
-    @intersection = Intersection.where(:lat => params[:lat], :lon => params[:lon])
+    @intersection = Intersection.by_distance(origin: [params[:lat], params[:lon]]).limit(5)
+    # @intersection = Intersection.where(:lat => params[:lat], :lon => params[:lon])
 
     respond_to do |format|
       format.html
