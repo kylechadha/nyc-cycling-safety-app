@@ -81,7 +81,6 @@ collisions.each do |collision|
     intersections[location][:motorists_killed] += collision['number_of_motorist_killed'].to_i
   end
 
-  # intersectionArray.push({street_name: collision['on_street_name'], cross_street: collision['off_street_name'], borough: collision['borough']})
 end
 
 Intersection.delete_all
@@ -104,13 +103,6 @@ intersections.keys.each do |location|
   )
 end
 
+# Could we then do all the averages / sums, and then do Intersection.update to cycle back through and add the new fields? (Danger Index, etc)
 
-# intersectionSet = intersectionArray.to_set
-# intersectionSet.each do |intersectionObj|
-#   intersectionName = "#{intersectionObj[:street_name]} and #{intersectionObj[:cross_street]}"
 
-#   Intersection.create!(
-#     intersection: intersectionName,
-#     borough: intersectionObj[:borough]
-#   )
-# end

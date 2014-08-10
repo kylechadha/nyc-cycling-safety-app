@@ -77,8 +77,8 @@
 		<tr>
 			<td><%= intersection.intersection %></td>
 			<td><%= intersection.borough %></td>
-			<td><%= intersection.lat %></td>
-			<td><%= intersection.lon %></td>
+			<td><%= number_with_precision(intersection.lat, precision: 3) %></td>
+			<td><%= number_with_precision(intersection.lon, precision: 3) %></td>
 			<td>
 				<%=
 					(
