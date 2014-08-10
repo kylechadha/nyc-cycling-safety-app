@@ -66,4 +66,13 @@ class IntersectionsController < ApplicationController
     end
 	end
 
+  def show
+    @intersection = Intersection.where(:lat => params[:lat], :lon => params[:lon])
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
 end
