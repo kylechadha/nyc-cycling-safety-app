@@ -80,12 +80,15 @@
 			<td><%= number_with_precision(intersection.lat, precision: 3) %></td>
 			<td><%= number_with_precision(intersection.lon, precision: 3) %></td>
 			<td>
+			<!-- for each intersection have to compare the value against the max / min for that field -->
+			<!-- ie: you get a 0 if you're at the min and a 1 if you're at the max, ie: (value - min) / max -->
 				<%=
 					(
-					 (300 * intersection.collisions) +
-					 (400 * intersection.cyclists_killed) +
-					 (200 * intersection.cyclists_injured) +
-					 (100 * (intersection.pedestrians_killed + intersection.motorists_killed))
+					 (300 * (intersection.collisions / @average_collisions)) +
+					 (400 * (intersection.cyclists_killed / @average_cyclists_killed)) +
+					 (200 * (intersection.cyclists_injured / @average_cyclists_injured)) +
+					 (50 * (intersection.pedestrians_killed / @average_pedestrians_killed)) +
+					 (50 * (intersection.motorists_killed / @average_motorists_killed))
 					)
 				%>
 			</td>
